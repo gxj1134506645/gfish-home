@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "new:post": "node scripts/new-post.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^3.1.0",
@@ -25,4 +26,3 @@
     "tailwindcss": "^3.4.1"
   }
 }
-

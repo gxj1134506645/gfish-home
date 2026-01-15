@@ -6,3 +6,7 @@ dist
 .DS_Store
 *.log
 
+# IDE 和编辑器配置
+.idea/
+.claude/
+

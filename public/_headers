@@ -1,7 +1,6 @@
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://plausible.io https://analytics.umami.is; connect-src 'self' https://plausible.io https://analytics.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://plausible.io; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
   Referrer-Policy: strict-origin-when-cross-origin
   X-Content-Type-Options: nosniff
   Permissions-Policy: camera=(), geolocation=(), microphone=()
-
