@@ -1,0 +1,7 @@
+# Cloudflare Pages/Netlify-style redirects
+# 提示：Cloudflare Pages 对域名级（host）重定向需在控制台用 Bulk Redirects 配置。
+# 这里提供路径级别规则备用。
+
+# 示例：如需从 /old 跳转到 /new，可添加：
+# /old   /new   301
+

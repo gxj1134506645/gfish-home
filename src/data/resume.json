@@ -1,0 +1,38 @@
+{
+  "basics": {
+    "name": "你的名字",
+    "email": "you@example.com",
+    "location": "",
+    "website": "https://example.com",
+    "profiles": [
+      { "network": "GitHub", "url": "https://github.com/yourname" }
+    ]
+  },
+  "summary_zh": "一句话概述：擅长 Astro/前端工程化/内容系统。",
+  "summary_en": "One-liner: Focused on Astro/FE engineering/content systems.",
+  "skills": ["Astro", "TypeScript", "Node.js"],
+  "experience": [
+    {
+      "company": "Acme",
+      "position_zh": "前端工程师",
+      "position_en": "Frontend Engineer",
+      "start": "2022-01",
+      "end": "2024-06",
+      "summary_zh": "负责内容站点与组件库建设。",
+      "summary_en": "Built content sites and component library."
+    }
+  ],
+  "education": [
+    { "school": "", "degree_zh": "", "degree_en": "", "start": "", "end": "" }
+  ],
+  "projects": [
+    {
+      "name_zh": "示例产品 A",
+      "name_en": "Sample Product A",
+      "url": "https://example.com/a",
+      "desc_zh": "……",
+      "desc_en": "..."
+    }
+  ]
+}
+

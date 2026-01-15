@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import now from "../data/now.json";
+const lang: 'zh' = 'zh';
+---
+<BaseLayout lang={lang} title="现在在做">
+  <Nav lang={lang} />
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <h1 class="text-2xl font-bold mb-2">现在在做</h1>
+    <p class="text-sm text-gray-500 mb-6">最近更新：{new Date(now.updatedAt).toLocaleDateString('zh-CN')}</p>
+    <p>{now.content_zh}</p>
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>
+

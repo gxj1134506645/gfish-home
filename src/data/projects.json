@@ -1,0 +1,21 @@
+[
+  {
+    "id": "p1",
+    "name_zh": "示例产品 A",
+    "name_en": "Sample Product A",
+    "desc_zh": "一个用于……的轻量工具",
+    "desc_en": "A lightweight tool for ...",
+    "url": "https://example.com/a",
+    "highlight": true
+  },
+  {
+    "id": "p2",
+    "name_zh": "示例产品 B",
+    "name_en": "Sample Product B",
+    "desc_zh": "聚焦……的开源库",
+    "desc_en": "An open-source library for ...",
+    "url": "https://example.com/b",
+    "badge": "OSS"
+  }
+]
+

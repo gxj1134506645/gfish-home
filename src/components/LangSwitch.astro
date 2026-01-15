@@ -1,0 +1,11 @@
+---
+export interface Props { lang: 'zh' | 'en' }
+const { lang } = Astro.props as Props;
+const path = Astro.url.pathname;
+const target = lang === 'zh' ? ('/en' + path) : path.replace(/^\/en/, '') || '/';
+const label = lang === 'zh' ? 'EN' : '中文';
+---
+<a href={target} class="px-2 py-1 rounded border border-gray-300 dark:border-gray-700 text-xs">
+  {label}
+</a>
+

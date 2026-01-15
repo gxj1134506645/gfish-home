@@ -1,0 +1,16 @@
+---
+import links from "../data/links.json";
+export interface Props { lang: 'zh' | 'en' }
+const { lang } = Astro.props as Props;
+---
+<ul class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+  {links.map(l => (
+    <li>
+      <a href={l.url} target="_blank" rel="noopener" class="block px-3 py-2 rounded border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900">
+        <span class="font-medium">{lang === 'zh' ? l.label_zh : l.label_en}</span>
+      </a>
+    </li>
+  ))}
+  
+</ul>
+

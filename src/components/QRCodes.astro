@@ -1,0 +1,38 @@
+---
+export interface Props { lang: 'zh' | 'en' }
+const { lang } = Astro.props as Props;
+const i18n = {
+  zh: {
+    title: '二维码',
+    mp: '微信公众号',
+    personal: '个人微信',
+    mpDesc: '扫码关注，获取最新文章与更新',
+    personalDesc: '添加请备注来意',
+    mpLink: '/wechat'
+  },
+  en: {
+    title: 'QR Codes',
+    mp: 'WeChat Official Account',
+    personal: 'Personal WeChat',
+    mpDesc: 'Scan to follow for updates',
+    personalDesc: 'Please note your purpose when adding',
+    mpLink: '/en/wechat'
+  }
+}[lang];
+---
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+  <div class="border rounded p-4">
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="font-medium">{i18n.mp}</h3>
+      <a href={i18n.mpLink} class="text-xs text-blue-600 hover:underline">{lang === 'zh' ? '查看大图' : 'View full'}</a>
+    </div>
+    <img src="/images/wechat-qr.jpg" alt={i18n.mp} class="w-40 h-40 object-contain" loading="lazy" />
+    <p class="mt-2 text-xs text-gray-500">{i18n.mpDesc}</p>
+  </div>
+  <div class="border rounded p-4">
+    <h3 class="font-medium mb-2">{i18n.personal}</h3>
+    <img src="/images/wechat-personal.png" alt={i18n.personal} class="w-40 h-40 object-contain" loading="lazy" />
+    <p class="mt-2 text-xs text-gray-500">{i18n.personalDesc}</p>
+  </div>
+</div>
+

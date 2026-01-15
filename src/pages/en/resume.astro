@@ -1,0 +1,34 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import Footer from "../../components/Footer.astro";
+import resume from "../../data/resume.json";
+const lang: 'en' = 'en';
+---
+<BaseLayout lang={lang} title="Resume">
+  <Nav lang={lang} />
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold">{resume.basics.name}</h1>
+      <p class="text-sm text-gray-600 dark:text-gray-400">{resume.basics.email} · {resume.basics.website}</p>
+    </header>
+    <section class="prose dark:prose-invert max-w-none">
+      <h2>Summary</h2>
+      <p>{resume.summary_en}</p>
+      <h2>Skills</h2>
+      <ul>{resume.skills.map((s)=> <li>{s}</li>)}</ul>
+      <h2>Experience</h2>
+      {resume.experience.map((e) => (
+        <div>
+          <strong>{e.company}</strong> · {e.position_en} ({e.start} - {e.end})
+          <p>{e.summary_en}</p>
+        </div>
+      ))}
+    </section>
+    <div class="mt-6 no-print">
+      <button onclick="window.print()" class="px-3 py-1.5 rounded border border-gray-300 dark:border-gray-700 text-sm">Print to PDF</button>
+    </div>
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>
+

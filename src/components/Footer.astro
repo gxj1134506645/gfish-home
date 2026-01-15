@@ -1,0 +1,21 @@
+---
+import siteData from "../data/site.json";
+export interface Props { lang: 'zh' | 'en' }
+const { lang } = Astro.props as Props;
+const d = siteData[lang];
+---
+<footer class="mt-16 border-t border-gray-200 dark:border-gray-800">
+  <div class="max-w-5xl mx-auto px-4 py-8 text-sm text-gray-500 space-y-1">
+    <p>{d.footer.copyright}</p>
+    {d.icp && (
+      <p>
+        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" class="hover:underline">{d.icp}</a>
+      </p>
+    )}
+    {d.psb?.num && d.psb?.url && (
+      <p>
+        <a href={d.psb.url} target="_blank" rel="noopener" class="hover:underline">{d.psb.num}</a>
+      </p>
+    )}
+  </div>
+</footer>

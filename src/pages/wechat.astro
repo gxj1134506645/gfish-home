@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+const lang: 'zh' = 'zh';
+---
+<BaseLayout lang={lang} title="微信公众号">
+  <Nav lang={lang} />
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <h1 class="text-2xl font-bold mb-6">微信公众号</h1>
+    <p class="mb-4 text-gray-600 dark:text-gray-400">扫码关注，获取最新文章与更新。</p>
+    <div class="border rounded p-4 inline-block bg-white dark:bg-gray-900">
+      <img src="/images/wechat-qr.jpg" alt="微信公众号二维码" class="w-64 h-64 object-contain" loading="lazy" />
+    </div>
+    <p class="mt-4 text-sm text-gray-500">若图片未显示，请稍后刷新或联系我。</p>
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>
+

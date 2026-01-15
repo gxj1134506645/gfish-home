@@ -1,0 +1,36 @@
+{
+  "zh": {
+    "siteName": "我的个人主页",
+    "tagline": "记录、分享、创造",
+    "icp": "",
+    "psb": { "num": "", "url": "" },
+    "nav": {
+      "home": "首页",
+      "blog": "博客",
+      "projects": "项目",
+      "links": "媒体矩阵",
+      "resume": "简历",
+      "now": "现在在做"
+    },
+    "footer": {
+      "copyright": "© 2026 你的名字"
+    }
+  },
+  "en": {
+    "siteName": "My Personal Site",
+    "tagline": "Write, Share, Create",
+    "icp": "",
+    "psb": { "num": "", "url": "" },
+    "nav": {
+      "home": "Home",
+      "blog": "Blog",
+      "projects": "Projects",
+      "links": "Links",
+      "resume": "Resume",
+      "now": "Now"
+    },
+    "footer": {
+      "copyright": "© 2026 Your Name"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+---
+export interface Project {
+  id: string;
+  name_zh: string;
+  name_en: string;
+  desc_zh: string;
+  desc_en: string;
+  url: string;
+  badge?: string;
+  highlight?: boolean;
+}
+export interface Props { lang: 'zh' | 'en'; item: Project }
+const { lang, item } = Astro.props as Props;
+---
+<a href={item.url} target="_blank" rel="noopener" class={`block rounded border p-4 transition hover:shadow-sm border-gray-200 dark:border-gray-800 ${item.highlight ? 'ring-2 ring-blue-500/30' : ''}`}>
+  <div class="flex items-center justify-between">
+    <h3 class="font-semibold">{lang === 'zh' ? item.name_zh : item.name_en}</h3>
+    {item.badge && <span class="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800">{item.badge}</span>}
+  </div>
+  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{lang === 'zh' ? item.desc_zh : item.desc_en}</p>
+</a>
+

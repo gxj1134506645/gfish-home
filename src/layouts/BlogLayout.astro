@@ -1,0 +1,28 @@
+---
+import BaseLayout from './BaseLayout.astro';
+export interface Props {
+  title: string;
+  description: string;
+  date: string;
+  lang: 'zh' | 'en';
+  tags?: string[];
+}
+const { title, description, date, lang, tags = [] } = Astro.props as Props;
+---
+<BaseLayout title={title} description={description} lang={lang}>
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <article>
+      <header class="mb-6">
+        <h1 class="text-3xl font-bold mb-2">{title}</h1>
+        <p class="text-sm text-gray-500">{new Date(date).toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en')}</p>
+        {tags.length > 0 && (
+          <ul class="flex flex-wrap gap-2 mt-2">
+            {tags.map((t) => <li class="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800">{t}</li>)}
+          </ul>
+        )}
+      </header>
+      <slot />
+    </article>
+  </main>
+</BaseLayout>
+

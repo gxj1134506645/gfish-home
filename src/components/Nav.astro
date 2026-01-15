@@ -1,0 +1,22 @@
+---
+import siteData from "../data/site.json";
+import LangSwitch from "./LangSwitch.astro";
+export interface Props { lang: 'zh' | 'en' }
+const { lang } = Astro.props as Props;
+const d = siteData[lang];
+---
+<nav class="w-full border-b border-gray-200 dark:border-gray-800">
+  <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+    <a href={lang === 'en' ? '/en' : '/'} class="font-semibold">{d.siteName}</a>
+    <div class="flex items-center gap-4 text-sm">
+      <a href={lang === 'en' ? '/en/blog' : '/blog'}>{d.nav.blog}</a>
+      <a href={lang === 'en' ? '/en/projects' : '/projects'}>{d.nav.projects}</a>
+      <a href={lang === 'en' ? '/en/links' : '/links'}>{d.nav.links}</a>
+      <a href={lang === 'en' ? '/en/resume' : '/resume'}>{d.nav.resume}</a>
+      <a href={lang === 'en' ? '/en/now' : '/now'}>{d.nav.now}</a>
+      <LangSwitch lang={lang} />
+    </div>
+  </div>
+  
+</nav>
+

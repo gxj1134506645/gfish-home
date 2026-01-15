@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content';
+export interface Props { lang: 'zh' | 'en'; posts: CollectionEntry<'blog'>[] }
+const { lang, posts } = Astro.props as Props;
+---
+<ul class="space-y-4">
+  {posts.map(p => (
+    <li>
+      <a href={(lang === 'en' ? '/en' : '') + '/blog/' + p.slug} class="block">
+        <h3 class="font-medium">{p.data.title}</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">{p.data.description}</p>
+        <p class="text-xs text-gray-500 mt-1">{new Date(p.data.date).toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en')}</p>
+      </a>
+    </li>
+  ))}
+</ul>
+

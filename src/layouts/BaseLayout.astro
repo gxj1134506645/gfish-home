@@ -1,0 +1,44 @@
+---
+import siteData from "../data/site.json";
+import "../styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  lang: 'zh' | 'en';
+  canonical?: string;
+  alternate?: string;
+}
+
+const { title, description, lang, canonical, alternate } = Astro.props as Props;
+const dict = siteData[lang];
+const siteName = dict.siteName;
+const fullTitle = title ? `${title} | ${siteName}` : siteName;
+const desc = description ?? dict.tagline;
+const canonicalUrl = canonical ?? Astro.url.toString();
+const altUrl = alternate ?? (lang === 'zh' ? new URL('/en' + Astro.url.pathname, Astro.url).toString() : new URL(Astro.url.pathname.replace(/^\/en/, ''), Astro.url).toString());
+const allowIndex = import.meta.env.PUBLIC_ALLOW_INDEX === '1';
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="alternate" hreflang="zh-CN" href={lang === 'zh' ? canonicalUrl : altUrl} />
+    <link rel="alternate" hreflang="en" href={lang === 'en' ? canonicalUrl : altUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:site_name" content={siteName} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={desc} />
+    {!allowIndex && <meta name="robots" content="noindex,nofollow" />}
+  </head>
+  <body class="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+    <slot />
+  </body>
+  
+</html>

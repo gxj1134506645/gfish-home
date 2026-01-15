@@ -1,0 +1,7 @@
+[
+  { "id": "github", "label_zh": "GitHub", "label_en": "GitHub", "icon": "github", "url": "https://github.com/gxj1134506645" },
+  { "id": "csdn", "label_zh": "CSDN", "label_en": "CSDN", "icon": "csdn", "url": "https://blog.csdn.net/gxy03" },
+  { "id": "juejin", "label_zh": "掘金", "label_en": "Juejin", "icon": "juejin", "url": "https://juejin.cn/user/4300945220705486" },
+  { "id": "zhihu", "label_zh": "知乎", "label_en": "Zhihu", "icon": "zhihu", "url": "https://www.zhihu.com/people/ge-xiao-yu-44-12" },
+  { "id": "wechat", "label_zh": "公众号", "label_en": "WeChat", "icon": "wechat", "url": "/wechat" }
+]
