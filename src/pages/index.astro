@@ -17,8 +17,7 @@ const posts = (await getCollection('blog', ({data}) => data.lang === 'zh' && !da
   <Nav lang={lang} />
   <main class="max-w-5xl mx-auto px-4 py-10">
     <section class="mb-10">
-      <h1 class="text-3xl font-bold">{d.siteName}</h1>
-      <p class="text-gray-600 dark:text-gray-400 mt-2">{d.tagline}</p>
+      <p class="text-xl font-bold text-gray-800 dark:text-gray-200">记录、分享、创造</p>
     </section>
 
     <section class="mb-12">

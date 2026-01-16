@@ -21,7 +21,9 @@ const { title, description, date, lang, tags = [] } = Astro.props as Props;
           </ul>
         )}
       </header>
-      <slot />
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <slot />
+      </div>
     </article>
   </main>
 </BaseLayout>
