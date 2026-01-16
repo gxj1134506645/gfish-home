@@ -1,6 +1,6 @@
 # gfish-home — Personal Site & Blog (Astro)
 
-English | 简体中文: see README.zh-CN.md
+English | 中文: [README.zh-CN.md](README.zh-CN.md)
 
 ---
 
@@ -55,7 +55,6 @@ Telemetry
   - `npm run new:post -- <slug> "中文标题" "English Title" [--date YYYY-MM-DD] [--draft]`
   - Example: `npm run new:post -- astro-i18n-guide "Astro 双语与内容模型最佳实践" "Best Practices for Astro i18n & Content" --date 2026-01-15`
 - Frontmatter example (EN):
-  ```md
   ---
   title: Best Practices for Astro i18n & Content
   description: Managing bilingual blogs and SEO with Content Collections.
@@ -65,7 +64,6 @@ Telemetry
   image: "/images/blog/astro-i18n-guide/cover.webp"
   canonical: "https://gfish.online/en/blog/astro-i18n-guide"
   ---
-  ```
 - Images under `public/images/blog/<slug>/...` (absolute paths)
 
 Update data

@@ -1,6 +1,6 @@
 # gfish-home — 个人主页与博客 (Astro)
 
-简体中文 | English: 见 README.md
+中文 | English: [README.md](README.md)
 
 ---
 
@@ -55,7 +55,6 @@
   - 命令：`npm run new:post -- <slug> "中文标题" "English Title" [--date YYYY-MM-DD] [--draft]`
   - 示例：`npm run new:post -- astro-i18n-guide "Astro 双语与内容模型最佳实践" "Best Practices for Astro i18n & Content" --date 2026-01-15`
 - Frontmatter 示例：
-  ```md
   ---
   title: Astro 双语与内容模型最佳实践
   description: 使用 Content Collections 管理中英文博客与 SEO。
@@ -65,7 +64,6 @@
   image: "/images/blog/astro-i18n-guide/cover.webp"
   canonical: "https://gfish.online/blog/astro-i18n-guide"
   ---
-  ```
 - 单语也可；`draft: true` 不出现在列表/RSS/Sitemap
 - 图片：放 `public/images/blog/<slug>/...`，用绝对路径引用
 
