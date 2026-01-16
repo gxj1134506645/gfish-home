@@ -12,11 +12,57 @@ export interface Project {
 export interface Props { lang: 'zh' | 'en'; item: Project }
 const { lang, item } = Astro.props as Props;
 ---
-<a href={item.url} target="_blank" rel="noopener" class={`block rounded border p-4 transition hover:shadow-sm border-gray-200 dark:border-gray-800 ${item.highlight ? 'ring-2 ring-blue-500/30' : ''}`}>
-  <div class="flex items-center justify-between">
-    <h3 class="font-semibold">{lang === 'zh' ? item.name_zh : item.name_en}</h3>
-    {item.badge && <span class="text-xs px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-800">{item.badge}</span>}
+<!-- 现代化项目卡片 - 玻璃态 + 悬停效果 -->
+<a
+  href={item.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={`
+    group relative block rounded-2xl overflow-hidden
+    bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm
+    border border-gray-200/50 dark:border-gray-800/50
+    p-6 transition-all duration-300
+    hover:shadow-xl hover:shadow-primary-500/10 dark:hover:shadow-primary-500/20
+    hover:-translate-y-1 hover:border-primary-300/50 dark:hover:border-primary-700/50
+    ${item.highlight ? 'ring-2 ring-primary-500/30 dark:ring-primary-500/50' : ''}
+  `}
+>
+  <!-- 悬停时的背景渐变效果 -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary-500/0 to-accent-500/0 group-hover:from-primary-500/5 group-hover:to-accent-500/5 dark:group-hover:from-primary-500/10 dark:group-hover:to-accent-500/10 transition-all duration-300 -z-10"></div>
+
+  <!-- 卡片头部 -->
+  <div class="flex items-start justify-between mb-3">
+    <h3 class="font-semibold text-lg text-gray-900 dark:text-gray-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200">
+      {lang === 'zh' ? item.name_zh : item.name_en}
+    </h3>
+    {item.badge && (
+      <span class="flex-shrink-0 text-xs font-medium px-2.5 py-1 rounded-full bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 border border-primary-200/50 dark:border-primary-800/50">
+        {item.badge}
+      </span>
+    )}
   </div>
-  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{lang === 'zh' ? item.desc_zh : item.desc_en}</p>
+
+  <!-- 卡片描述 -->
+  <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4 line-clamp-2">
+    {lang === 'zh' ? item.desc_zh : item.desc_en}
+  </p>
+
+  <!-- 卡片底部 - 查看更多链接 -->
+  <div class="flex items-center text-sm font-medium text-primary-600 dark:text-primary-400 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors duration-200">
+    <span>查看项目</span>
+    <svg
+      class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform duration-200"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+    </svg>
+  </div>
+
+  <!-- 高亮项目的装饰元素 -->
+  {item.highlight && (
+    <div class="absolute top-3 right-3 w-2 h-2 rounded-full bg-primary-500 animate-pulse"></div>
+  )}
 </a>
 

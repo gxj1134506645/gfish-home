@@ -27,6 +27,12 @@ const allowIndex = import.meta.env.PUBLIC_ALLOW_INDEX === '1';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={desc} />
+
+    <!-- 引入 Inter 字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
     <link rel="alternate" hreflang="zh-CN" href={lang === 'zh' ? canonicalUrl : altUrl} />
     <link rel="alternate" hreflang="en" href={lang === 'en' ? canonicalUrl : altUrl} />
     <meta property="og:type" content="website" />
@@ -39,8 +45,21 @@ const allowIndex = import.meta.env.PUBLIC_ALLOW_INDEX === '1';
     {!allowIndex && <meta name="robots" content="noindex,nofollow" />}
     <Analytics />
   </head>
-  <body class="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
-    <slot />
+  <body class="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- 背景装饰元素 - 渐变光晕效果 -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+      <!-- 左上角光晕 -->
+      <div class="absolute -top-40 -left-40 w-80 h-80 bg-primary-500/20 dark:bg-primary-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <!-- 右下角光晕 -->
+      <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-accent-500/20 dark:bg-accent-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+      <!-- 中间光晕 -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/5 dark:to-accent-500/5 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- 主内容区域 - 添加顶部间距以适应固定导航栏 -->
+    <div class="pt-16">
+      <slot />
+    </div>
   </body>
-  
+
 </html>

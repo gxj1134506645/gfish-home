@@ -15,26 +15,84 @@ const posts = (await getCollection('blog', ({data}) => data.lang === 'zh' && !da
 ---
 <BaseLayout lang={lang}>
   <Nav lang={lang} />
-  <main class="max-w-5xl mx-auto px-4 py-10">
-    <section class="mb-10">
-      <p class="text-xl font-bold text-gray-800 dark:text-gray-200">记录、分享、创造</p>
-    </section>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+    <!-- Hero 区域 - 大标题横幅 -->
+    <section class="mb-16 sm:mb-20 animate-fade-in">
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary-500/10 via-accent-500/10 to-primary-500/10 dark:from-primary-500/20 dark:via-accent-500/20 dark:to-primary-500/20 p-8 sm:p-12 lg:p-16 backdrop-blur-sm border border-primary-200/20 dark:border-primary-800/20">
+        <!-- 装饰性背景元素 -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl -z-10"></div>
 
-    <section class="mb-12">
-      <h2 class="text-xl font-semibold mb-4">项目</h2>
-      <div class="grid sm:grid-cols-2 gap-4">
-        {projects.map(p => <ProjectCard lang={lang} item={p} />)}
+        <div class="relative z-10">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary-600 via-accent-600 to-primary-600 bg-clip-text text-transparent animate-slide-up">
+            {d.siteName}
+          </h1>
+          <p class="text-xl sm:text-2xl lg:text-3xl font-medium text-gray-700 dark:text-gray-300 animate-slide-up" style="animation-delay: 0.1s;">
+            {d.tagline}
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="mb-12">
-      <h2 class="text-xl font-semibold mb-4">最新文章</h2>
-      <PostList lang={lang} posts={posts} />
-    </section>
+    <!-- Bento Grid 布局 - 项目和文章混合展示 -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-16 sm:mb-20">
+      <!-- 项目区域 - 占据左侧 2 列 -->
+      <section class="lg:col-span-2 animate-slide-up" style="animation-delay: 0.3s;">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+            精选项目
+          </h2>
+          <a
+            href="/projects"
+            class="text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors duration-200 flex items-center gap-1"
+          >
+            查看全部
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+          {projects.slice(0, 4).map((p, index) => (
+            <div class="animate-scale-in" style={`animation-delay: ${0.4 + index * 0.1}s;`}>
+              <ProjectCard lang={lang} item={p} />
+            </div>
+          ))}
+        </div>
+      </section>
 
-    <section class="mb-12">
-      <h2 class="text-xl font-semibold mb-4">媒体矩阵</h2>
-      <SocialLinks lang={lang} />
+      <!-- 媒体矩阵区域 - 占据右侧 1 列 -->
+      <section class="animate-slide-up" style="animation-delay: 0.5s;">
+        <div class="sticky top-24">
+          <h2 class="text-2xl sm:text-3xl font-bold mb-6 bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+            媒体矩阵
+          </h2>
+          <div class="rounded-2xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-800/50 p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+            <SocialLinks lang={lang} />
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 最新文章区域 -->
+    <section class="animate-slide-up" style="animation-delay: 0.6s;">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
+          最新文章
+        </h2>
+        <a
+          href="/blog"
+          class="text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors duration-200 flex items-center gap-1"
+        >
+          查看全部
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+      <div class="rounded-2xl bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-800/50 p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+        <PostList lang={lang} posts={posts} />
+      </div>
     </section>
   </main>
   <Footer lang={lang} />

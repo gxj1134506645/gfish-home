@@ -5,18 +5,120 @@ export interface Props { lang: 'zh' | 'en' }
 const { lang } = Astro.props as Props;
 const d = siteData[lang];
 ---
-<nav class="w-full border-b border-gray-200 dark:border-gray-800">
-  <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-    <a href={lang === 'en' ? '/en' : '/'} class="font-semibold">{d.siteName}</a>
-    <div class="flex items-center gap-4 text-sm">
-      <a href={lang === 'en' ? '/en/projects' : '/projects'}>{d.nav.projects}</a>
-      <a href={lang === 'en' ? '/en/blog' : '/blog'}>{d.nav.blog}</a>
-      <a href={lang === 'en' ? '/en/contact' : '/contact'}>{d.nav.contact}</a>
-      <a href={lang === 'en' ? '/en/resume' : '/resume'}>{d.nav.resume}</a>
-      <a href={lang === 'en' ? '/en/now' : '/now'}>{d.nav.now}</a>
-      <LangSwitch lang={lang} />
+<!-- 玻璃态导航栏 - 固定在顶部，带模糊背景效果 -->
+<nav class="fixed top-0 left-0 right-0 z-50 w-full backdrop-blur-md bg-white/70 dark:bg-gray-950/70 border-b border-gray-200/50 dark:border-gray-800/50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo/站点名称 - 添加渐变效果 -->
+      <a
+        href={lang === 'en' ? '/en' : '/'}
+        class="font-bold text-lg bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent hover:from-primary-500 hover:to-accent-500 transition-all duration-300"
+      >
+        {d.siteName}
+      </a>
+
+      <!-- 导航链接 - 响应式设计 -->
+      <div class="hidden md:flex items-center gap-1">
+        <a
+          href={lang === 'en' ? '/en/projects' : '/projects'}
+          class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+        >
+          {d.nav.projects}
+        </a>
+        <a
+          href={lang === 'en' ? '/en/blog' : '/blog'}
+          class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+        >
+          {d.nav.blog}
+        </a>
+        <a
+          href={lang === 'en' ? '/en/contact' : '/contact'}
+          class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+        >
+          {d.nav.contact}
+        </a>
+        <a
+          href={lang === 'en' ? '/en/resume' : '/resume'}
+          class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+        >
+          {d.nav.resume}
+        </a>
+        <a
+          href={lang === 'en' ? '/en/now' : '/now'}
+          class="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+        >
+          {d.nav.now}
+        </a>
+
+        <!-- 语言切换按钮 -->
+        <div class="ml-2">
+          <LangSwitch lang={lang} />
+        </div>
+      </div>
+
+      <!-- 移动端菜单按钮 -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
   </div>
 
+  <!-- 移动端菜单 -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200/50 dark:border-gray-800/50 bg-white/90 dark:bg-gray-950/90 backdrop-blur-md">
+    <div class="px-4 py-3 space-y-1">
+      <a
+        href={lang === 'en' ? '/en/projects' : '/projects'}
+        class="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+      >
+        {d.nav.projects}
+      </a>
+      <a
+        href={lang === 'en' ? '/en/blog' : '/blog'}
+        class="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+      >
+        {d.nav.blog}
+      </a>
+      <a
+        href={lang === 'en' ? '/en/contact' : '/contact'}
+        class="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+      >
+        {d.nav.contact}
+      </a>
+      <a
+        href={lang === 'en' ? '/en/resume' : '/resume'}
+        class="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+      >
+        {d.nav.resume}
+      </a>
+      <a
+        href={lang === 'en' ? '/en/now' : '/now'}
+        class="block px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-all duration-200"
+      >
+        {d.nav.now}
+      </a>
+      <div class="pt-2">
+        <LangSwitch lang={lang} />
+      </div>
+    </div>
+  </div>
 </nav>
+
+<!-- 移动端菜单交互脚本 -->
+<script>
+  // 移动端菜单切换功能
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
 

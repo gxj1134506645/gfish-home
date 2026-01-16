@@ -43,7 +43,7 @@
       "name_zh": "happy-claude-skills",
       "name_en": "happy-claude-skills",
       "url": "https://github.com/gxj1134506645/happy-claude-skills",
-      "desc_zh": "为 Claude Code 开发的实用技能插件集。包括 Word 文档格式复制、视频处理与 Whisper 转录、公众号文章自动化、浏览器自动化、AI 海报生成等功���。基于 TypeScript + Node.js 开发，展示 AI 辅助开发能力和工具链整合能力。已开源并持续维护。",
+      "desc_zh": "为 Claude Code 开发的实用技能插件集。包括 Word 文档格式复制、视频处理与 Whisper 转录、公众号文章自动化、浏览器自动化、AI 海报生成等功能。基于 TypeScript + Node.js 开发，展示 AI 辅助开发能力和工具链整合能力。已开源并持续维护。",
       "desc_en": "Practical skill plugins for Claude Code. Includes Word document format replication, video processing with Whisper transcription, WeChat article automation, browser automation, AI poster generation. Built with TypeScript + Node.js, demonstrating AI-assisted development capabilities and toolchain integration. Open-sourced and actively maintained."
     },
     {
