@@ -1,25 +1,31 @@
 {
   "basics": {
-    "name": "你的名字",
-    "email": "you@example.com",
+    "name": "gfish",
     "location": "",
-    "website": "https://example.com",
     "profiles": [
-      { "network": "GitHub", "url": "https://github.com/yourname" }
+      { "network": "GitHub", "url": "https://github.com/gxj1134506645" }
     ]
   },
-  "summary_zh": "一句话概述：擅长 Astro/前端工程化/内容系统。",
-  "summary_en": "One-liner: Focused on Astro/FE engineering/content systems.",
-  "skills": ["Astro", "TypeScript", "Node.js"],
+  "summary_zh": "资深全栈工程师，6年+ Java 后端开发经验，2年+ 前端开发经验。精通 Spring Boot、MyBatis、微服务架构，熟练掌握 Vue/React 前端技术栈。具备完整的 DevOps 能力，熟练使用 Docker、Jenkins CI/CD、Linux 运维。1年+ AI 辅助开发经验（Claude Code、Cursor、Windsurf），显著提升开发效率。",
+  "summary_en": "Senior Full-Stack Engineer with 6+ years of Java backend development and 2+ years of frontend development experience. Expert in Spring Boot, MyBatis, microservices architecture, and proficient in Vue/React frontend stack. Strong DevOps skills with Docker, Jenkins CI/CD, and Linux operations. 1+ year of AI-assisted development experience (Claude Code, Cursor, Windsurf) with significant productivity improvements.",
+  "skills": [
+    "后端 (6年+): Java, Spring Boot, Spring Cloud, MyBatis/MyBatis Plus, MySQL, Redis, 微服务架构",
+    "后端 (Node.js): NestJS, Prisma, Express, JWT 认证, RESTful API 设计",
+    "前端 (2年+): Vue 3, React 18, TypeScript, Vite, Tailwind CSS, Element Plus, Ant Design",
+    "DevOps: Docker, Jenkins CI/CD, Linux 运维, Nginx, 腾讯云/阿里云服务器管理",
+    "数据库: MySQL, Redis, Prisma ORM, MyBatis Plus, 数据库设计与优化",
+    "中间件: Redis 缓存, Redisson 分布式锁, 消息队列, 对象存储 (MinIO/S3/OSS)",
+    "AI 工具 (1年+): Claude Code, Cursor, Windsurf, GitHub Copilot (Vibe Coding)"
+  ],
   "experience": [
     {
-      "company": "Acme",
-      "position_zh": "前端工程师",
-      "position_en": "Frontend Engineer",
-      "start": "2022-01",
-      "end": "2024-06",
-      "summary_zh": "负责内容站点与组件库建设。",
-      "summary_en": "Built content sites and component library."
+      "company": "某科技公司",
+      "position_zh": "资深全栈工程师",
+      "position_en": "Senior Full-Stack Engineer",
+      "start": "2018-06",
+      "end": "至今",
+      "summary_zh": "负责企业级管理系统的全栈开发与架构设计。后端采用 Spring Boot + MyBatis Plus 构建微服务架构，前端使用 Vue/React 技术栈。搭建并维护 Docker 容器化环境，使用 Jenkins 实现 CI/CD 自动化部署。管理腾讯云/阿里云服务器，负责 Linux 系统运维、Nginx 配置、Redis/MySQL 等中间件维护。近一年深度使用 AI 辅助开发工具，开发效率提升 50%+。",
+      "summary_en": "Responsible for full-stack development and architecture design of enterprise management systems. Backend built with Spring Boot + MyBatis Plus microservices architecture, frontend using Vue/React stack. Set up and maintain Docker containerized environment, implement CI/CD automation with Jenkins. Manage Tencent Cloud/Alibaba Cloud servers, responsible for Linux system operations, Nginx configuration, Redis/MySQL middleware maintenance. Extensively using AI-assisted development tools in the past year, improving development efficiency by 50%+."
     }
   ],
   "education": [
@@ -27,11 +33,39 @@
   ],
   "projects": [
     {
-      "name_zh": "示例产品 A",
-      "name_en": "Sample Product A",
-      "url": "https://example.com/a",
-      "desc_zh": "……",
-      "desc_en": "..."
+      "name_zh": "人力资源管理系统 (hr_sys)",
+      "name_en": "HR Management System (hr_sys)",
+      "url": "",
+      "desc_zh": "企业级人力资源管理系统。后端采用 NestJS + Prisma + MySQL，实现员工管理、考勤管理、薪资管理、权限管理等核心功能。前端使用 React + Ant Design，支持数据可视化、文件上传、PDF 预览等功能。采用 JWT 认证、RBAC 权限模型、Redis 缓存、MinIO 对象存储。使用 Docker 容器化部署，Jenkins 自动化 CI/CD。",
+      "desc_en": "Enterprise HR management system. Backend built with NestJS + Prisma + MySQL, implementing employee management, attendance, payroll, permission management. Frontend using React + Ant Design with data visualization, file upload, PDF preview. Uses JWT authentication, RBAC permission model, Redis cache, MinIO object storage. Deployed with Docker containerization and Jenkins automated CI/CD."
+    },
+    {
+      "name_zh": "售后管理系统 (asm_sys)",
+      "name_en": "After-Sales Management System (asm_sys)",
+      "url": "",
+      "desc_zh": "电表售后管理系统。后端采用 NestJS + Prisma + MySQL，前端使用 Vue 3 + Element Plus。实现工单管理、客户管理、数据统计、ECharts 可视化等功能。采用前后端分离架构，统一响应封装，全局异常处理。部署在腾讯云服务器，使用 Docker + Nginx + Redis 技术栈。",
+      "desc_en": "After-sales management system for electric meters. Backend built with NestJS + Prisma + MySQL, frontend using Vue 3 + Element Plus. Implements work order management, customer management, data statistics, ECharts visualization. Uses front-end and back-end separation architecture with unified response encapsulation and global exception handling. Deployed on Tencent Cloud with Docker + Nginx + Redis stack."
+    },
+    {
+      "name_zh": "代理商城后端 (agent_mall_server)",
+      "name_en": "Agent Mall Backend (agent_mall_server)",
+      "url": "",
+      "desc_zh": "代理商城后端服务。采用 Spring Boot 3 + MyBatis Plus + Sa-Token 技术栈，使用 Java 21 新特性。集成 Redis 分布式缓存、Redisson 分布式锁、阿里云 OSS 对象存储。实现完整的商城业务逻辑、权限认证体系、订单管理、支付对接等功能。使用 Docker 容器化部署，Jenkins 实现自动化构建与发布。",
+      "desc_en": "Agent mall backend service. Built with Spring Boot 3 + MyBatis Plus + Sa-Token stack, using Java 21 features. Integrates Redis distributed cache, Redisson distributed lock, Aliyun OSS object storage. Implements complete mall business logic, permission authentication system, order management, payment integration. Deployed with Docker containerization and Jenkins automated build and release."
+    },
+    {
+      "name_zh": "Claude 技能插件集 (happy-claude-skills)",
+      "name_en": "Claude Skills Collection (happy-claude-skills)",
+      "url": "https://github.com/gxj1134506645/happy-claude-skills",
+      "desc_zh": "为 Claude Code 开发的实用技能插件集。包括 Word 文档格式复制、视频处理与 Whisper 转录、公众号文章自动化、浏览器自动化、AI 海报生成等功能。基于 TypeScript + Node.js 开发，展示 AI 辅助开发能力和工具链整合能力。已开源并持续维护。",
+      "desc_en": "Practical skill plugins for Claude Code. Includes Word document format replication, video processing with Whisper transcription, WeChat article automation, browser automation, AI poster generation. Built with TypeScript + Node.js, demonstrating AI-assisted development capabilities and toolchain integration. Open-sourced and actively maintained."
+    },
+    {
+      "name_zh": "个人主页 (gfish-home)",
+      "name_en": "Personal Homepage (gfish-home)",
+      "url": "https://gfish.online",
+      "desc_zh": "基于 Astro + Tailwind CSS + MDX 的静态个人主页与技术博客。支持中英双语、SEO 优化、响应式设计。部署于 Vercel，实现自动化构建与部署。记录技术学习与项目经验，分享全栈开发与 AI 辅助开发实践。",
+      "desc_en": "Static personal homepage and tech blog based on Astro + Tailwind CSS + MDX. Supports bilingual (Chinese/English), SEO optimization, responsive design. Deployed on Vercel with automated build and deployment. Documents technical learning and project experience, sharing full-stack development and AI-assisted development practices."
     }
   ]
 }
