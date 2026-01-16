@@ -1,0 +1,227 @@
+---
+title: 零成本搭建个人图床：PicGo + GitHub + jsDelivr 完全指南
+description: 利用 GitHub 作为存储，PicGo 作为上传工具，配合 jsDelivr CDN 加速，打造完全免费、稳定可靠的个人 Markdown 图床解决方案。
+date: "2026-01-16"
+lang: zh
+tags: ["工具", "图床", "GitHub", "PicGo", "CDN", "Markdown"]
+image: https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108150329158.png
+---
+
+## 前言
+
+写 Markdown 文档时,图片管理一直是个痛点。本地图片难以分享,第三方图床服务又不稳定甚至收费。今天分享一个完全免费的解决方案：利用 GitHub 作为存储,PicGo 作为上传工具,配合 jsDelivr CDN 加速,打造专属的 Markdown 图床。
+
+这个方案的优点：
+- 完全免费,无流量限制
+- 利用 GitHub 的稳定性和版本控制
+- jsDelivr CDN 全球加速,访问速度快
+- PicGo 一键上传,支持时间戳重命名
+
+---
+
+## 一、配置 GitHub 仓库
+
+### 1.1 创建公开仓库
+
+登录 GitHub,点击右上角 "+" 号,选择 "New repository"
+
+![创建新仓库](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108150329158.png)
+
+仓库名可以自定义,比如 `img-bed`,**重要：一定要选择 Public 公开属性**
+
+![设置仓库为公开](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108150617673.png)
+
+### 1.2 创建私人访问令牌（Token）
+
+这是 PicGo 上传图片到仓库的凭证。
+
+**步骤路径：**
+头像 → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token (classic)
+
+![进入设置](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108150641977.png)
+![开发者设置](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108150832767.png)
+![生成令牌](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108150929940.png)
+
+**创建令牌时需要设置：**
+
+- Note：填写备注,如 "PicGo 图床"
+- Expiration：选择过期时间（建议不超过 90 天）
+- 勾选 `repo` 权限（这个就够了）
+
+![配置令牌权限](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108151029979.png)
+
+![确认生成](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108151059386.png)
+
+生成后会显示一串字符,**务必立即复制保存**,关闭页面后就看不到了。
+
+![复制令牌](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108151144743.png)
+
+---
+
+## 二、安装配置 PicGo
+
+### 2.1 下载安装
+
+PicGo 下载地址：
+https://github.com/Molunerfinn/PicGo/releases
+
+根据你的操作系统选择对应版本安装。
+
+![下载 PicGo](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108151237711.png)
+
+### 2.2 配置 GitHub 图床
+
+打开 PicGo,进入"图床设置" → "GitHub"
+
+![图床设置](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108151327528.png)
+
+### 2.3 填写配置参数
+
+以下是关键配置项说明：
+
+| 配置项 | 说明 | 示例 |
+|--------|------|------|
+| 仓库名 | 格式：用户名/仓库名 | gxj1134506645/img-bed |
+| 分支名 | 默认为 main | main |
+| Token | 上面生成的 Token | ghp_xxxxxxxxxxxx |
+| 存储路径 | 图片存放目录,留空为根目录,没有的目录会自动创建 | img/ |
+| 自定义域名 | CDN 加速地址 | 见下方详细说明 |
+
+![配置参数](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108151557687.png)
+
+**仓库名获取方式：**
+在 GitHub 仓库页面,URL 中 `github.com/` 后面的部分就是。
+
+例如：
+[gxj1134506645/img-bed](https://github.com/gxj1134506645/img-bed)
+
+仓库名就是：`gxj1134506645/img-bed`
+
+**自定义域名配置（CDN 加速）：**
+
+使用 jsDelivr 免费 CDN,格式为：
+
+```
+https://cdn.jsdelivr.net/gh/用户名/仓库名
+```
+
+示例：
+```
+https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed
+```
+
+jsDelivr 官网：
+https://www.jsdelivr.com/
+
+**指定分支（非默认分支时）：**
+
+如果你的图片上传到其他分支（如 dev）,自定义域名格式为：
+
+```
+https://cdn.jsdelivr.net/gh/用户名/仓库名@分支名
+```
+
+示例：
+```
+https://cdn.jsdelivr.net/gh/misakivv/Cloud-Image-Hosting@dev
+```
+
+---
+
+## 三、测试上传
+
+配置完成后,在 PicGo 主界面的"上传区"选择 GitHub 图床,点击上传即可。
+
+![上传图片](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108151825369.png)
+
+上传成功后,可以在"相册"中查看所有上传的图片及其 CDN 链接。
+
+![查看相册](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108151841648.png)
+
+### 时间戳重命名
+
+建议开启"时间戳重命名"功能,避免同名图片被覆盖。
+
+![时间戳重命名](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108152006363.png)
+
+---
+
+## 四、Typora 集成（可选）
+
+如果你使用 Typora 写 Markdown,可以配置自动上传。
+
+### 配置步骤
+
+1. 打开 Typora 偏好设置（快捷键 Ctrl + ,）
+
+2. 找到"图像"选项
+3. "插入图片时"选择"上传图片"
+4. 上传服务选择"PicGo (app)"
+5. PicGo 路径选择你的 PicGo 安装目录
+
+![Typora 配置](https://cdn.jsdelivr.net/gh/gxj1134506645/img-bed@main/images/20260108152123009.png)
+
+配置完成后,在 Typora 中粘贴图片会自动上传到图床。
+
+---
+
+## 五、原理说明
+
+### 为什么这样设计？
+
+```
+┌─────────┐     ┌─────────┐     ┌──────────┐     ┌─────────┐
+│ 本地图片 │ ──> │  PicGo  │ ──> │  GitHub  │ ──> │ jsDelivr│
+└─────────┘     └─────────┘     └──────────┘     └─────────┘
+                                    │               │
+                                    v               v
+                                  版本控制        CDN加速
+                                  免费存储        全球节点
+```
+
+1. **GitHub**：提供免费的 git 仓库存储,每个仓库 1GB,单文件 100MB
+2. **PicGo**：简化上传流程,支持批量上传、拖拽上传
+3. **jsDelivr**：免费 CDN,有中国大陆节点,访问速度快
+
+### CDN 加速效果对比
+
+- 原始 GitHub 地址：`https://raw.githubusercontent.com/用户名/仓库名/分支/路径`
+- CDN 加速后：`https://cdn.jsdelivr.net/gh/用户名/仓库名@分支/路径`
+
+国内访问速度提升显著。
+
+---
+
+## 六、常见问题
+
+**Q：Token 泄漏了怎么办？**
+A：立即到 GitHub Developer settings 撤销旧 Token,生成新的。
+
+**Q：仓库可以是私有的吗？**
+A：可以,但 jsDelivr 只支持公开仓库。私有仓库用原始 GitHub 地址,速度会慢。
+
+**Q：图片有大小限制吗？**
+A：GitHub 单文件限制 100MB,仓库总限制 1GB（超出会收到警告但能继续用）。
+
+**Q：可以绑定自己的域名吗？**
+A：jsDelivr 不支持自定义域名。如需自定义域名,考虑使用 Cloudflare Workers。
+
+---
+
+## 总结
+
+这套方案的核心价值：
+
+| 特性 | 说明 |
+|------|------|
+| 成本 | 完全免费 |
+| 稳定性 | 依托 GitHub,99.9% 可用性 |
+| 速度 | jsDelivr 国内节点加持 |
+| 易用性 | PicGo 一键上传 |
+| 版本控制 | Git 自动记录每次变更 |
+
+适合人群：个人博客作者、技术文档写作者、Markdown 爱好者。
+
+---
+
+欢迎关注公众号FishTech Notes,一块交流使用心得
