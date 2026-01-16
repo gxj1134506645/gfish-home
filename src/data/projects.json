@@ -1,8 +1,8 @@
 [
   {
     "id": "p1",
-    "name_zh": "代理商城后端",
-    "name_en": "Agent Mall Backend",
+    "name_zh": "agent_mall_server",
+    "name_en": "agent_mall_server",
     "desc_zh": "代理商城后端服务，基于 Spring Boot 3 + MyBatis Plus 构建",
     "desc_en": "Agent mall backend service built with Spring Boot 3 + MyBatis Plus",
     "url": "",
@@ -10,8 +10,8 @@
   },
   {
     "id": "p2",
-    "name_zh": "Claude 技能插件集",
-    "name_en": "Claude Skills Collection",
+    "name_zh": "happy-claude-skills",
+    "name_en": "happy-claude-skills",
     "desc_zh": "为 Claude Code 开发的实用技能插件集，已开源",
     "desc_en": "Practical skill plugins for Claude Code, open-sourced",
     "url": "https://github.com/gxj1134506645/happy-claude-skills",
@@ -19,8 +19,8 @@
   },
   {
     "id": "p3",
-    "name_zh": "个人主页",
-    "name_en": "Personal Homepage",
+    "name_zh": "gfish-home",
+    "name_en": "gfish-home",
     "desc_zh": "基于 Astro + Tailwind CSS 的静态个人主页与技术博客",
     "desc_en": "Static personal homepage and tech blog based on Astro + Tailwind CSS",
     "url": "https://github.com/gxj1134506645/gfish-home",

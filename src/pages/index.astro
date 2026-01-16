@@ -8,7 +8,6 @@ import siteData from "../data/site.json";
 import projects from "../data/projects.json";
 import { getCollection } from 'astro:content';
 import PostList from "../components/PostList.astro";
-import QRCodes from "../components/QRCodes.astro";
 
 const lang: 'zh' = 'zh';
 const d = siteData[lang];
@@ -23,25 +22,20 @@ const posts = (await getCollection('blog', ({data}) => data.lang === 'zh' && !da
     </section>
 
     <section class="mb-12">
-      <h2 class="text-xl font-semibold mb-4">媒体矩阵</h2>
-      <SocialLinks lang={lang} />
-    </section>
-
-    <section class="mb-12">
-      <h2 class="text-xl font-semibold mb-4">联系方式</h2>
-      <QRCodes lang={lang} />
-    </section>
-
-    <section class="mb-12">
-      <h2 class="text-xl font-semibold mb-4">项目与产品</h2>
+      <h2 class="text-xl font-semibold mb-4">项目</h2>
       <div class="grid sm:grid-cols-2 gap-4">
         {projects.map(p => <ProjectCard lang={lang} item={p} />)}
       </div>
     </section>
 
-    <section>
+    <section class="mb-12">
       <h2 class="text-xl font-semibold mb-4">最新文章</h2>
       <PostList lang={lang} posts={posts} />
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-xl font-semibold mb-4">媒体矩阵</h2>
+      <SocialLinks lang={lang} />
     </section>
   </main>
   <Footer lang={lang} />

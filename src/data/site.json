@@ -6,9 +6,9 @@
     "psb": { "num": "", "url": "" },
     "nav": {
       "home": "首页",
-      "blog": "博客",
       "projects": "项目",
-      "links": "媒体矩阵",
+      "blog": "博客",
+      "contact": "联系",
       "resume": "简历",
       "now": "现在在做"
     },
@@ -23,9 +23,9 @@
     "psb": { "num": "", "url": "" },
     "nav": {
       "home": "Home",
-      "blog": "Blog",
       "projects": "Projects",
-      "links": "Links",
+      "blog": "Blog",
+      "contact": "Contact",
       "resume": "Resume",
       "now": "Now"
     },
