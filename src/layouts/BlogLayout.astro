@@ -12,6 +12,17 @@ const { title, description, date, lang, tags = [] } = Astro.props as Props;
 <BaseLayout title={title} description={description} lang={lang}>
   <main class="max-w-3xl mx-auto px-4 py-10">
     <article>
+      <!-- 返回博客列表按钮 -->
+      <a
+        href={lang === 'zh' ? '/blog' : '/en/blog'}
+        class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 mb-6 transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span>{lang === 'zh' ? '返回博客列表' : 'Back to Blog'}</span>
+      </a>
+
       <header class="mb-6">
         <h1 class="text-3xl font-bold mb-2">{title}</h1>
         <p class="text-sm text-gray-500">{new Date(date).toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en')}</p>
