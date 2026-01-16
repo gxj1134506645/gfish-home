@@ -33,20 +33,6 @@
   ],
   "projects": [
     {
-      "name_zh": "人力资源管理系统 (hr_sys)",
-      "name_en": "HR Management System (hr_sys)",
-      "url": "",
-      "desc_zh": "企业级人力资源管理系统。后端采用 NestJS + Prisma + MySQL，实现员工管理、考勤管理、薪资管理、权限管理等核心功能。前端使用 React + Ant Design，支持数据可视化、文件上传、PDF 预览等功能。采用 JWT 认证、RBAC 权限模型、Redis 缓存、MinIO 对象存储。使用 Docker 容器化部署，Jenkins 自动化 CI/CD。",
-      "desc_en": "Enterprise HR management system. Backend built with NestJS + Prisma + MySQL, implementing employee management, attendance, payroll, permission management. Frontend using React + Ant Design with data visualization, file upload, PDF preview. Uses JWT authentication, RBAC permission model, Redis cache, MinIO object storage. Deployed with Docker containerization and Jenkins automated CI/CD."
-    },
-    {
-      "name_zh": "售后管理系统 (asm_sys)",
-      "name_en": "After-Sales Management System (asm_sys)",
-      "url": "",
-      "desc_zh": "电表售后管理系统。后端采用 NestJS + Prisma + MySQL，前端使用 Vue 3 + Element Plus。实现工单管理、客户管理、数据统计、ECharts 可视化等功能。采用前后端分离架构，统一响应封装，全局异常处理。部署在腾讯云服务器，使用 Docker + Nginx + Redis 技术栈。",
-      "desc_en": "After-sales management system for electric meters. Backend built with NestJS + Prisma + MySQL, frontend using Vue 3 + Element Plus. Implements work order management, customer management, data statistics, ECharts visualization. Uses front-end and back-end separation architecture with unified response encapsulation and global exception handling. Deployed on Tencent Cloud with Docker + Nginx + Redis stack."
-    },
-    {
       "name_zh": "代理商城后端 (agent_mall_server)",
       "name_en": "Agent Mall Backend (agent_mall_server)",
       "url": "",
@@ -63,7 +49,7 @@
     {
       "name_zh": "个人主页 (gfish-home)",
       "name_en": "Personal Homepage (gfish-home)",
-      "url": "https://gfish.online",
+      "url": "https://github.com/gxj1134506645/gfish-home",
       "desc_zh": "基于 Astro + Tailwind CSS + MDX 的静态个人主页与技术博客。支持中英双语、SEO 优化、响应式设计。部署于 Vercel，实现自动化构建与部署。记录技术学习与项目经验，分享全栈开发与 AI 辅助开发实践。",
       "desc_en": "Static personal homepage and tech blog based on Astro + Tailwind CSS + MDX. Supports bilingual (Chinese/English), SEO optimization, responsive design. Deployed on Vercel with automated build and deployment. Documents technical learning and project experience, sharing full-stack development and AI-assisted development practices."
     }
