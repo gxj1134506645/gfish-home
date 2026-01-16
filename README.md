@@ -1,6 +1,6 @@
 # gfish-home — Personal Site & Blog (Astro)
 
-English | 中文: [README.zh-CN.md](README.zh-CN.md)
+[English](README.md) | [中文](README.zh-CN.md)
 
 ---
 
